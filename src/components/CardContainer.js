@@ -21,44 +21,37 @@ class CardContainer extends React.Component{
             data : null,
         }
     }
-    async getAPI() {
+ 
+
+    async componentDidMount(){
+
         const api = `/openapi/service/rest/Covid19/getCovid19InfStateJson?serviceKey=${API_serviceKey}&pageNo=${API_pageNo}&numOfRows=${API_numOfRows}&startCreateDt=${API_startCreateDt}&endCreateDt=${API_endCreateDt}`;
-        // 데이터 data 변수로 변환 
-        return await axios
-        .get(api,   
-            {
-                method: 'GET',
-                mode: 'no-cors',
-                headers: {
-                    'Access-Control-Allow-Origin': '*',
-                    'Content-Type': 'application/xml',
-                },
-                withCredentials: true,
-                credentials: 'same-origin',
-            },)
-    }
-    
-
-    componentDidMount(){
-        if(!this.state.data){
-            this.getAPI().then(res=> 
-                res.data.response.body
-            )
-            .then(answer => 
-                answer.items.item
-            )
-            .then(data => 
-                { 
-                    console.log(data)
-                    return this.setState({
-                    data 
-                        })
+            // 데이터 data 변수로 변환 
+        
+        try {
+            const makedata = await axios.get(api,   
+                {
+                    method: 'GET',
+                    mode: 'no-cors',
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Content-Type': 'application/xml',
+                    },
+                    withCredentials: true,
+                    credentials: 'same-origin',
+                },)
+            if(!this.state.data){
+                console.log(makedata.data.response.body.items.item)
+                return this.setState({
+                    data: makedata.data.response.body.items.item
                 })
-            .catch(err => 
-                console.log(err)
-            )    
+            }
         }
-
+        catch(error){
+            console.log(error);
+        }
+            
+    
     }
     componentWillUnmount() {
         this.setState({
@@ -70,8 +63,7 @@ class CardContainer extends React.Component{
             display: flex;
             color: black;
             flex-wrap: wrap;
-            background-image:url(${img});
-            background-repeat: round;
+            background-color: skyblue;
             justify-content: space-between;
         `;
 
