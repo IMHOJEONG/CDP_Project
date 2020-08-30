@@ -7,6 +7,6 @@ WORKDIR /app
 COPY package.json /app
 RUN npm install
 COPY . /app
-
+EXPOSE 3000
 # Default command
 CMD ["npm", "run", "start"]
