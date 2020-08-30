@@ -1,4 +1,4 @@
-FROM node:10
+FROM node:12
  
 WORKDIR /usr/src/app
  
@@ -8,6 +8,6 @@ RUN npm install
  
 COPY . .
  
-EXPOSE 3000
+EXPOSE 3001
  
-CMD [ "npm", "start" ]
+CMD ["npm-run-all", "--parallel", "start:**"]
