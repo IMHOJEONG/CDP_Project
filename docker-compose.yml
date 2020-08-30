@@ -1,17 +1,14 @@
-version: "3.7"
+version: "3.8"
 
 services:
-  sample:
+  client:
     container_name: react-dockerize
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ".:/app"
+      - "./:/app"
       - "/app/node_modules"
     ports:
-      - "3001:3000"
-    environment:
-      - NODE_ENV=development
+      - "3000:3000"
     stdin_open: true
-    tty: true
