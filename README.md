@@ -24,16 +24,18 @@
 
 - 아래 사진과 같이 신청 버튼을 누르고
 
-    ![](readmepicture/register.png)
+    ![register](https://user-images.githubusercontent.com/11308147/91700516-00993200-ebb1-11ea-9be9-e34e1448ac20.png)
 
 - api 활용을 어떻게 할 지 개발계정 작성해서 등록 승인을 받습니다. 
 
-    ![](readmepicture/develop.png)
+    ![develop](https://user-images.githubusercontent.com/11308147/91700509-ff680500-ebb0-11ea-9efe-dcacdea40173.png)
+
+
 
 
 4. 승인이 완료되면 관련 privateKey, endPoint를 받게 되고 이 부분을 복사해서 코드에서 활용하면 됩니다. 
 
-    ![](readmepicture/info.png)
+    ![info](https://user-images.githubusercontent.com/11308147/91700515-00009b80-ebb1-11ea-921f-eff6c4920cef.png)
 
 - 안 되는 부분은 각 API 밑 부분에 있는 Q&A를 통해 해결할 수 있습니다. 
 
