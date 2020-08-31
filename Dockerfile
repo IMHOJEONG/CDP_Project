@@ -1,13 +1,16 @@
 FROM node:12
  
-WORKDIR /usr/src/app
- 
-COPY package*.json ./
+WORKDIR /app
+
+ENV PATH /app/node_modules/.bin:$PATH
+
+COPY package.json /app/package.json
  
 RUN npm install
- 
+
 COPY . .
  
-EXPOSE 3001
- 
-CMD ["npm-run-all", "--parallel", "start:**"]
+EXPOSE 3000
+
+CMD ["npm", "start"]
+
